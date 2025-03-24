@@ -65,9 +65,9 @@ const givingController  = {
             console.log(post_data.cardholder.phone_number)
             console.log(datetime)
             console.log(post_data.cardholder.email)
-            givingModel.add(post_data.cardholder.name, post_data.amount, post_data.currency, datetime, post_data.cardholder.phone_number, post_data.cardholder.email, (err) => {
-                if (err) return console.log(err)
-            })
+            // givingModel.add(post_data.cardholder.name, post_data.amount, post_data.currency, datetime, post_data.cardholder.phone_number, post_data.cardholder.email, (err) => {
+            //     if (err) return console.log(err)
+            // })
             res.status(200).json(externalResponse);
         } catch (error) {
             console.error('Error sending data to external API:', error);
