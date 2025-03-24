@@ -21,7 +21,7 @@ app.use(flash())
 
 // app.get('/', givingController.index)
 
-app.post('/payment', async (req, res, next) => {
+app.post('api/payment', async (req, res, next) => {
         console.log('pay-by-prime');
         const post_data = {
             "prime": req.body.prime,
