@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(flash())
 
-app.get('/', givingController.index)
+// app.get('/', givingController.index)
 
 app.post('/api/payment', givingController.giving)
 
