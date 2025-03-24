@@ -23,6 +23,6 @@ app.get('/', givingController.index)
 
 app.post('/api/payment', givingController.giving)
 
-app.listen(port, () => {
-    console.log(`App listening on port ${port}`)
-})
+// app.listen(port, () => {
+//     console.log(`App listening on port ${port}`)
+// })
