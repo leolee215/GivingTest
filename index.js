@@ -26,3 +26,5 @@ app.post('/api/payment', givingController.giving)
 // app.listen(port, () => {
 //     console.log(`App listening on port ${port}`)
 // })
+
+module.exports = app;
