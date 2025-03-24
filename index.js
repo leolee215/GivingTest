@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const session = require('express-session')
 const flash = require('connect-flash')
 const app = express()
+const axios = require('axios');
 const https = require('https')
 const givingController = require('./controllers/giving')
 const port = 3000
@@ -21,7 +22,75 @@ app.use(flash())
 
 // app.get('/', givingController.index)
 
-app.post('/api/payment', givingController.giving)
+app.post('/api/payment', async (req, res, next) => {
+        console.log('pay-by-prime');
+        const post_data = {
+            "prime": req.body.prime,
+            "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
+            "merchant_id": "rangtest_CTBC",
+            "amount": req.body.amount,
+            "currency": req.body.currency,
+            "details": "Test Giving.",
+            "cardholder": {
+                "phone_number": "+886923456789",
+                "name": "王小明",
+                "email": "LittleMing@Wang.com",
+            },
+            "remember": false
+        }
+        console.log(post_data.currency)
+        console.log(post_data.cardholder.name)
+        console.log(req.body.prime)
+        console.log(req.body.amount)
+        // const { name, phone_number, email } = req.body.cardholder
+        try {
+            const response = await axios.post('https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime', { // 替换为你要调用的外部API的URL
+                "prime": req.body.prime,
+                "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
+                "merchant_id": "rangtest_CTBC",
+                "amount": req.body.amount,
+                "currency": req.body.currency,
+                "details": "Test Giving.",
+                "cardholder": {
+                    "phone_number": "+886923456789",
+                    "name": "王小明",
+                    "email": "LittleMing@Wang.com",
+                },
+                "remember": false
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': 'partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK'
+                }
+            });
+
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從0開始的，所以要加1
+            const day = String(date.getDate()).padStart(2, '0');
+
+            const datetime = `${year}-${month}-${day}`;
+    
+            const externalResponse = response.data;
+            // res.json(externalResponse);
+            console.log(externalResponse);
+            console.log(externalResponse.msg)  //Success
+            
+            console.log(post_data.currency)
+            console.log(post_data.cardholder.name)
+            console.log(post_data.amount)
+            console.log(post_data.cardholder.phone_number)
+            console.log(datetime)
+            console.log(post_data.cardholder.email)
+            // givingModel.add(post_data.cardholder.name, post_data.amount, post_data.currency, datetime, post_data.cardholder.phone_number, post_data.cardholder.email, (err) => {
+            //     if (err) return console.log(err)
+            // })
+            res.status(200).json(externalResponse);
+        } catch (error) {
+            console.error('Error sending data to external API:', error);
+            res.status(500).json({ error: 'Failed to send data to external API' });
+        }
+    })
 
 // app.listen(port, () => {
 //     console.log(`App listening on port ${port}`)
