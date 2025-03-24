@@ -28,19 +28,18 @@ const givingController  = {
         // const { name, phone_number, email } = req.body.cardholder
         try {
             const response = await axios.post('https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime', { // 替换为你要调用的外部API的URL
-                // "prime": req.body.prime,
-                // "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
-                // "merchant_id": "rangtest_CTBC",
-                // "amount": req.body.amount,
-                // "currency": req.body.currency,
-                // "details": "Test Giving.",
-                // "cardholder": {
-                //     "phone_number": "+886923456789",
-                //     "name": "王小明",
-                //     "email": "LittleMing@Wang.com",
-                // },
-                // "remember": false
-                post_data
+                "prime": req.body.prime,
+                "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
+                "merchant_id": "rangtest_CTBC",
+                "amount": req.body.amount,
+                "currency": req.body.currency,
+                "details": "Test Giving.",
+                "cardholder": {
+                    "phone_number": "+886923456789",
+                    "name": "王小明",
+                    "email": "LittleMing@Wang.com",
+                },
+                "remember": false
             }, {
                 headers: {
                     'Content-Type': 'application/json',
