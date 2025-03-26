@@ -9,11 +9,17 @@ const givingController = require('./controllers/giving')
 const port = 3000
 
 import cors from "cors";
-app.use(cors({
-    origin: "https://thehope.app", // 允許特定來源
-    methods: "GET,POST,OPTIONS",
-    allowedHeaders: "Content-Type, Authorization"
-}));
+// app.use(cors({
+//     origin: "https://thehope.app", // 允許特定來源
+//     methods: "GET,POST,OPTIONS",
+//     allowedHeaders: "Content-Type, Authorization"
+// }));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*'); // 或指定來源
+    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 
 app.set('view engine', 'ejs')
 app.use(session({
