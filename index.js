@@ -39,9 +39,9 @@ app.use(flash())
 // app.get('/', givingController.index)
 
 app.post('/api/payment', async (req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
+    // res.setHeader('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
     console.log('pay-by-prime');
     const post_data = {
         "prime": req.body.prime,
