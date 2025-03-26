@@ -7,6 +7,8 @@ const app = express()
 const https = require('https')
 const givingController = require('./controllers/giving')
 const port = 3000
+const cors = require('cors');
+
 
 // import cors from "cors";
 // app.use(cors({
@@ -27,6 +29,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
+
+app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
