@@ -24,14 +24,20 @@ const cors = require('cors');
 // });
 
 // 設定 CORS 配置
-const corsOptions = {
-    origin: 'https://thehope.app/CONFGIVE', // 允許的來源 (可以更改為您需要的網址)
-    methods: ['GET', 'POST'], // 允許的請求方法
-    allowedHeaders: ['Content-Type', 'Authorization'], // 允許的標頭
-};
+// const corsOptions = {
+//     origin: 'https://thehope.app/CONFGIVE', // 允許的來源 (可以更改為您需要的網址)
+//     methods: ['GET', 'POST'], // 允許的請求方法
+//     allowedHeaders: ['Content-Type', 'Authorization'], // 允許的標頭
+// };
   
-// 使用 CORS 中間件
-app.use(cors(corsOptions));
+// // 使用 CORS 中間件
+// app.use(cors(corsOptions));
+
+app.use(cors({
+    origin: "https://thehope.app/CONFGIVE", // 允許特定來源
+    methods: "GET,POST,OPTIONS",
+    allowedHeaders: "Content-Type, Authorization"
+}));
 
 
 app.set('view engine', 'ejs')
