@@ -47,7 +47,7 @@ app.use(session({
     saveUninitialized: true
 }))
 
-// app.use(cors())
+app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -63,7 +63,7 @@ app.use(flash())
 // app.use(cors());
   
 app.post('/api/payment', async (req, res, next) => {
-    res.set('Access-Control-Allow-Origin', '*');
+    // res.setHeader('Access-Control-Allow-Origin', '*');
     // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
     console.log('pay-by-prime');
