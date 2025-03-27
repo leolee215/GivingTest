@@ -60,10 +60,10 @@ app.use(flash())
 //     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 //     res.sendStatus(200);
 // });
-app.use(cors());
+// app.use(cors());
   
 app.post('/api/payment', async (req, res, next) => {
-    // res.setHeader('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Origin', '*');
     // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
     console.log('pay-by-prime');
