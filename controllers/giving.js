@@ -6,11 +6,14 @@ const givingController  = {
     },
 
     giving: async (req, res, next) => {
+        // res.setHeader('Access-Control-Allow-Origin', '*');
+        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+        // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
         console.log('pay-by-prime');
         const post_data = {
             "prime": req.body.prime,
-            "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
-            "merchant_id": "rangtest_CTBC",
+            "partner_key": "partner_FS6F79MtMnfUBKc3dinh6eOoT1QLdCltZb4slfzpBQuAdrCq3Pd5ViQA",
+            "merchant_id": "thehopedev_CTBC",
             "amount": req.body.amount,
             "currency": req.body.currency,
             "details": "Test Giving.",
@@ -29,8 +32,8 @@ const givingController  = {
         try {
             const response = await axios.post('https://sandbox.tappaysdk.com/tpc/payment/pay-by-prime', { // 替换为你要调用的外部API的URL
                 "prime": req.body.prime,
-                "partner_key": "partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK",
-                "merchant_id": "rangtest_CTBC",
+                "partner_key": "partner_FS6F79MtMnfUBKc3dinh6eOoT1QLdCltZb4slfzpBQuAdrCq3Pd5ViQA",
+                "merchant_id": "thehopedev_CTBC",
                 "amount": req.body.amount,
                 "currency": req.body.currency,
                 "details": "Test Giving.",
@@ -43,15 +46,15 @@ const givingController  = {
             }, {
                 headers: {
                     'Content-Type': 'application/json',
-                    'x-api-key': 'partner_cIqUYDHmgKVKQwUAx2fa0ZybDgbojtcvmbb2adFwOr929c5H0NbQVcCK'
+                    'x-api-key': 'partner_FS6F79MtMnfUBKc3dinh6eOoT1QLdCltZb4slfzpBQuAdrCq3Pd5ViQA'
                 }
             });
-
+    
             const date = new Date();
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0'); // 月份是從0開始的，所以要加1
             const day = String(date.getDate()).padStart(2, '0');
-
+    
             const datetime = `${year}-${month}-${day}`;
     
             const externalResponse = response.data;
