@@ -10,22 +10,22 @@ const givingController  = {
         // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
         // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
         console.log('pay-by-prime');
-        const post_data = {
-            "prime": req.body.prime,
-            "partner_key": "partner_FS6F79MtMnfUBKc3dinh6eOoT1QLdCltZb4slfzpBQuAdrCq3Pd5ViQA",
-            "merchant_id": "thehopedev_CTBC",
-            "amount": req.body.amount,
-            "currency": req.body.currency,
-            "details": "Test Giving.",
-            "cardholder": {
-                "phone_number": "+886923456789",
-                "name": "王小明",
-                "email": "LittleMing@Wang.com",
-            },
-            "remember": false
-        }
-        console.log(post_data.currency)
-        console.log(post_data.cardholder.name)
+        // const post_data = {
+        //     "prime": req.body.prime,
+        //     "partner_key": "partner_FS6F79MtMnfUBKc3dinh6eOoT1QLdCltZb4slfzpBQuAdrCq3Pd5ViQA",
+        //     "merchant_id": "thehopedev_CTBC",
+        //     "amount": req.body.amount,
+        //     "currency": req.body.currency,
+        //     "details": "Test Giving.",
+        //     "cardholder": {
+        //         "phone_number": "+886923456789",
+        //         "name": "王小明",
+        //         "email": "LittleMing@Wang.com",
+        //     },
+        //     "remember": false
+        // }
+        // console.log(post_data.currency)
+        // console.log(post_data.cardholder.name)
         console.log(req.body.prime)
         console.log(req.body.amount)
         // const { name, phone_number, email } = req.body.cardholder
@@ -42,7 +42,7 @@ const givingController  = {
                 //     "name": "王小明",
                 //     "email": "LittleMing@Wang.com",
                 // },
-                "cardholder": req.body.cardholder,
+                // "cardholder": req.body.cardholder,
                 "remember": false
             }, {
                 headers: {
@@ -63,12 +63,12 @@ const givingController  = {
             console.log(externalResponse);
             console.log(externalResponse.msg)  //Success
             
-            console.log(post_data.currency)
-            console.log(post_data.cardholder.name)
-            console.log(post_data.amount)
-            console.log(post_data.cardholder.phone_number)
+            // console.log(post_data.currency)
+            // console.log(post_data.cardholder.name)
+            // console.log(post_data.amount)
+            // console.log(post_data.cardholder.phone_number)
             console.log(datetime)
-            console.log(post_data.cardholder.email)
+            // console.log(post_data.cardholder.email)
             // givingModel.add(post_data.cardholder.name, post_data.amount, post_data.currency, datetime, post_data.cardholder.phone_number, post_data.cardholder.email, (err) => {
             //     if (err) return console.log(err)
             // })
