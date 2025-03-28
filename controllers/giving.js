@@ -37,7 +37,12 @@ const givingController  = {
                 "amount": req.body.amount,
                 "currency": req.body.currency,
                 "details": "Test Giving.",
-                // "cardholder": req.body.cardholder,
+                // "cardholder": {
+                //     "phone_number": "+886923456789",
+                //     "name": "王小明",
+                //     "email": "LittleMing@Wang.com",
+                // },
+                "cardholder": req.body.cardholder,
                 "remember": false
             }, {
                 headers: {
