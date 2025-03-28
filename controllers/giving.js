@@ -37,7 +37,7 @@ const givingController  = {
                 "amount": req.body.amount,
                 "currency": req.body.currency,
                 "details": "Test Giving.",
-                "cardholder": req.body.cardholder,
+                // "cardholder": req.body.cardholder,
                 "remember": false
             }, {
                 headers: {
