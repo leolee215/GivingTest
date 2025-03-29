@@ -39,7 +39,7 @@ const givingController  = {
                     "name": "王小明",
                     "email": "LittleMing@Wang.com",
                 },
-                "cardholder": req.body.cardholder,
+                // "cardholder": req.body.cardholder,
                 "remember": false
             }, {
                 headers: {
