@@ -6,9 +6,6 @@ const givingController  = {
     },
 
     giving: async (req, res, next) => {
-        // res.setHeader('Access-Control-Allow-Origin', '*');
-        // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-        // res.setHeader('Access-Control-Allow-Headers', 'Content-Type, x-api-key');
         console.log('pay-by-prime');
         // const post_data = {
         //     "prime": req.body.prime,
@@ -37,12 +34,12 @@ const givingController  = {
                 "amount": req.body.amount,
                 "currency": req.body.currency,
                 "details": "Test Giving.",
-                // "cardholder": {
-                //     "phone_number": "+886923456789",
-                //     "name": "王小明",
-                //     "email": "LittleMing@Wang.com",
-                // },
-                // "cardholder": req.body.cardholder,
+                "cardholder": {
+                    "phone_number": "+886923456789",
+                    "name": "王小明",
+                    "email": "LittleMing@Wang.com",
+                },
+                "cardholder": req.body.cardholder,
                 "remember": false
             }, {
                 headers: {
